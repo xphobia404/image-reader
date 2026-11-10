@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  toll-reader:
+    build: .
+    container_name: toll-receipt-reader
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./data:/app/data
